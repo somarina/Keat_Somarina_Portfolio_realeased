@@ -32,6 +32,7 @@ import ruppStudyClub from "./company/image.png";
 import ecommerceApp from "./ecomerce_app_image.png";
 import todoList from "./todo-list_image.png";
 import camExplore from "./camexplore_image.jpg";
+import flowerShop from "./fsms_image.png";
 
 export {
   logo,
@@ -60,6 +61,7 @@ export {
   ecommerceApp,
   todoList,
   camExplore,
+  flowerShop,
   herd,
   java,
   csharp,

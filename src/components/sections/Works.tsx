@@ -19,6 +19,9 @@ const ProjectCard: React.FC<{ index: number; onComingSoon: () => void } & TProje
   sourceCodeLink,
   onComingSoon,
 }) => {
+  const featuredImageHeight =
+    index < 3 ? "h-[300px] sm:h-[330px]" : "h-[230px]";
+
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -36,9 +39,9 @@ const ProjectCard: React.FC<{ index: number; onComingSoon: () => void } & TProje
               onComingSoon();
             }
           }}
-          className="bg-tertiary w-full rounded-2xl p-5 sm:w-[300px] cursor-pointer"
+          className="bg-tertiary w-full rounded-2xl p-5 cursor-pointer"
         >
-          <div className="relative h-[230px] w-full">
+          <div className={`relative w-full ${featuredImageHeight}`}>
             <img
               src={image}
               alt={name}
@@ -95,7 +98,7 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-20 flex flex-wrap gap-7">
+      <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 gap-7">
         {projects.map((project, index) => (
           <ProjectCard 
             key={`project-${index}`} 

@@ -12,6 +12,7 @@ import {
   camExplore,
   ecommerceApp,
   figma,
+  flowerShop,
   herd,
   mobile,
   ruppStudyClub,
@@ -259,6 +260,27 @@ const projects: TProject[] = [
     ],
     image: camExplore,
     sourceCodeLink: 'https://www.facebook.com/share/v/1Dbgdexqhz/',
+  },
+  {
+    name: 'FSMS - Flower Shop Management System',
+    description:
+      'A console-based Flower Shop Management System (FSMS) designed in C++ using Object-Oriented Programming (OOP) and the ANT Hinsy OOP Library. Features a beautifully colored command-line interface with custom ASCII art, robust inventory management, real-time sales tracking, and dynamic billing generation.',
+    tags: [
+      {
+        name: 'cpp',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'oop',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'ant-hinsy-oop',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: flowerShop,
+    sourceCodeLink: 'https://somarina.github.io/Hosting2-FSMS/project.html',
   },
 ];
 
