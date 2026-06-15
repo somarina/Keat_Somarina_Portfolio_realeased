@@ -1,14 +1,14 @@
-import React from "react";
-import Tilt from "react-parallax-tilt";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import React from 'react';
+import Tilt from 'react-parallax-tilt';
 
-import { services } from "../../constants";
-import { SectionWrapper } from "../../hoc";
-import { fadeIn } from "../../utils/motion";
-import { config } from "../../constants/config";
-import { Header } from "../atoms/Header";
-import { somarina } from "../../assets";
-import cvFile from "../../assets/Keat Somarina - CV&CL.pdf";
+import { somarina } from '../../assets';
+import cvFile from '../../assets/Keat Somarina - CV&CL.pdf';
+import { services } from '../../constants';
+import { config } from '../../constants/config';
+import { SectionWrapper } from '../../hoc';
+import { fadeIn } from '../../utils/motion';
+import { Header } from '../atoms/Header';
 
 interface IServiceCard {
   index: number;
@@ -24,38 +24,29 @@ const ServiceCard: React.FC<IServiceCard> = ({ index, title, icon }) => (
     tiltMaxAngleY={25}
     glareColor="#00F0FF"
     glarePosition="all"
-    glareBorderRadius="20px"
+    glareBorderRadius="22px"
     className="transform-gpu"
   >
     <div className="max-w-[250px] w-full xs:w-[250px]">
       <motion.div
-        variants={fadeIn("up", "spring", index * 0.3, 0.75)}
-        className="relative w-full rounded-[20px] p-[2px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,240,255,0.2)]"
-        style={{
-          background: "linear-gradient(135deg, rgba(0,240,255,0.5) 0%, rgba(0,0,0,0) 50%, rgba(0,240,255,0.2) 100%)"
-        }}
+        variants={fadeIn('up', 'spring', index * 0.3, 0.75)}
+        className="relative w-full overflow-hidden rounded-[28px] border border-white/10 shadow-[0_25px_80px_rgba(0,0,0,0.45)] transition-all duration-300 hover:shadow-[0_30px_90px_rgba(0,0,0,0.55)]"
       >
-        <div 
-          className="bg-[#0b0f19] flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5 relative overflow-hidden backdrop-blur-xl border-t border-l border-white/10"
-          style={{ transformStyle: "preserve-3d" }}
-        >
-          {/* Subtle background glow inside the card */}
-          <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#00F0FF] rounded-full blur-[60px] opacity-20 pointer-events-none" />
-          <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#915EFF] rounded-full blur-[60px] opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#00f0ff]/15 via-transparent to-[#915eff]/15 opacity-80" />
+        <div className="relative bg-slate-950/90 backdrop-blur-xl px-6 py-6">
+          <div className="mb-5 flex items-center justify-between gap-3 rounded-full bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.25em] text-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.18)]">
+            <span>{title}</span>
+          </div>
 
-          <div
-            className="flex flex-col items-center justify-center gap-6"
-            style={{ transform: "translateZ(60px)" }}
-          >
-            <img
-              src={icon}
-              alt={title}
-              className="h-20 w-20 object-contain drop-shadow-[0_10px_20px_rgba(0,240,255,0.4)]"
-            />
+          <div className="rounded-[24px] border border-white/10 bg-slate-900/80 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <div className="flex h-40 items-center justify-center rounded-[20px] bg-white/5">
+              <img src={icon} alt={title} className="h-20 w-20 object-contain" />
+            </div>
+          </div>
 
-            <h3 className="text-center text-[22px] font-bold text-white tracking-wide">
-              {title}
-            </h3>
+          <div className="mt-6 text-center text-[15px] text-secondary leading-6">
+            {title} services to help you build modern interfaces, meaningful interactions, and
+            polished user journeys.
           </div>
         </div>
       </motion.div>
@@ -68,41 +59,67 @@ const About = () => {
     <>
       <Header useMotion={true} {...config.sections.about} />
 
-      <div className="flex flex-col md:flex-row gap-10 mt-4 items-center">
-        <motion.div
-          variants={fadeIn("right", "", 0.1, 1)}
-          className="flex-1"
-        >
-          <p className="text-secondary text-[17px] leading-[30px]">
-            {config.sections.about.content}
-          </p>
-          <a
-            href={cvFile}
-            download="Keat_Somarina_CV.pdf"
-            className="mt-8 inline-block bg-[#00F0FF] text-black font-bold py-3 px-8 rounded-xl shadow-[0_0_15px_rgba(0,240,255,0.4)] hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] transition-all duration-300"
-          >
-            Download CV
-          </a>
-        </motion.div>
-
-        <motion.div
-          variants={fadeIn("left", "", 0.2, 1)}
-          className="flex-1 flex justify-center md:justify-end"
-        >
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-[#171717] shadow-card relative group">
-             <div className="absolute inset-0 cyan-gradient opacity-20 z-10 group-hover:opacity-40 transition-opacity duration-300" />
-             <img src={somarina} alt="Keat Somarina" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-          </div>
-        </motion.div>
-      </div>
-
       <div className="mt-20 flex flex-wrap gap-10 max-sm:justify-center">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </div>
+
+      <div className="mt-10 overflow-hidden rounded-[32px] border border-slate-200/10 bg-slate-50/90 p-6 shadow-[0_35px_90px_rgba(15,23,42,0.12)] sm:p-10">
+        <div className="grid items-center gap-8 sm:grid-cols-[1.05fr_0.95fr]">
+          <div className="relative overflow-hidden rounded-[32px] bg-white p-6 shadow-[0_30px_70px_rgba(15,23,42,0.08)] sm:p-8">
+            <div className="absolute right-0 top-1/2 h-52 w-52 -translate-y-1/2 rounded-full bg-orange-200/60 blur-3xl" />
+            <div className="relative mx-auto flex max-w-[360px] justify-center">
+              <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-slate-100 p-4 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                <img
+                  src={somarina}
+                  alt={config.hero.name}
+                  className="h-[360px] w-[360px] object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-orange-500">
+                Why Hire me?
+              </p>
+              <h3 className="mt-4 max-w-xl text-4xl font-bold text-slate-950 sm:text-5xl">
+                Why Hire me?
+              </h3>
+            </div>
+            <p className="max-w-xl text-base leading-8 text-slate-600">
+              I design clean, high-performance mobile apps with thoughtful UX for real users.
+            </p>
+            <p className="max-w-xl text-base leading-8 text-slate-600">
+              I combine Flutter UI expertise with strong product thinking so your next app feels
+              polished, usable, and ready for launch.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <button
+                type="button"
+                className="inline-flex w-full items-center justify-center rounded-full border border-slate-900 bg-white px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-slate-100 sm:w-auto"
+                onClick={() => {
+                  const section = document.getElementById('contact');
+                  section?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Hire me
+              </button>
+              <a
+                href={cvFile}
+                download
+                className="inline-flex w-full items-center justify-center rounded-full border border-slate-900 bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800 sm:w-auto"
+              >
+                Download My CV
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
 
-export default SectionWrapper(About, "about");
+export default SectionWrapper(About, 'about');

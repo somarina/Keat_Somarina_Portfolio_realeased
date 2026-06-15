@@ -10,8 +10,10 @@ import type {
 import {
   backend,
   camExplore,
+  camExploreApp,
   ecommerceApp,
   figma,
+  fitnessApp,
   flowerShop,
   herd,
   mobile,
@@ -23,8 +25,7 @@ import {
 const devicon = (icon: string) =>
   `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon}`;
 
-const simpleIcon = (slug: string, color: string) =>
-  `https://cdn.simpleicons.org/${slug}/${color}`;
+const simpleIcon = (slug: string, color: string) => `https://cdn.simpleicons.org/${slug}/${color}`;
 
 const dashboardIcon = (icon: string) =>
   `https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/${icon}.svg`;
@@ -35,12 +36,12 @@ export const navLinks: TNavLink[] = [
     title: 'About',
   },
   {
-    id: 'work',
-    title: 'Work',
+    id: 'experience',
+    title: 'Work Experience',
   },
   {
-    id: 'contact',
-    title: 'Contact',
+    id: 'project',
+    title: "Mana's Project",
   },
 ];
 
@@ -189,7 +190,7 @@ const testimonials: TTestimonial[] = [
   },
   {
     testimonial:
-      "After Keat launched our new mobile application, user engagement and retention increased by 50%. Incredible work!",
+      'After Keat launched our new mobile application, user engagement and retention increased by 50%. Incredible work!',
     name: 'Lisa Wang',
     designation: 'CTO',
     company: '456 Enterprises',
@@ -281,6 +282,50 @@ const projects: TProject[] = [
     ],
     image: flowerShop,
     sourceCodeLink: 'https://somarina.github.io/Hosting2-FSMS/project.html',
+  },
+  {
+    name: 'Case Study Fitness App',
+    description:
+      'A comprehensive UX/UI case study for a fitness tracking application designed in Figma, showcasing workout progress visualization, daily activity summaries, and user engagement strategies.',
+    tags: [
+      {
+        name: 'figma',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'case study',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'ux/ui',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: fitnessApp,
+    sourceCodeLink:
+      'https://www.figma.com/design/e5H8OnvnZvAUCUDvJkIp4o/Case-Study-Fitness-App?node-id=0-1&t=jDOYdtap50G8UhjH-1',
+  },
+  {
+    name: 'CamExplore App - UI Design',
+    description:
+      'UI/UX design for the CamExplore travel discovery app created in Figma, featuring destination browsing, immersive imagery, and intuitive navigation for exploring Cambodian tourism spots.',
+    tags: [
+      {
+        name: 'figma',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'travel',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'mobile-ui',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: camExploreApp,
+    sourceCodeLink:
+      'https://www.figma.com/design/39umzDwAKUonfmU7eXMK0G/CamExplore-App?node-id=1-2&t=6KPnI3MlKV7NYKQ6-1',
   },
 ];
 
